@@ -3,47 +3,58 @@
 #include <locale.h>
 
 #define length 200
+#define height 2
+#define width 2
 
-char pergunta[length],torrada[length];
+char pergunta[length],torrada[length],continuar;
+int i,j;
 
+void pergtorrada(char *ptorrada);
 
-void torradaperg() {
+int main(){
+  
+  setlocale(LC_ALL,"Portuguese");
+  
+	char ptorrada;
+	char *ppergunta = pergunta;
 	
-	printf("\nO que você coloca em uma torradeira? \n");
-	gets(torrada);
+	printf("\t\t\t\tBem vindo\n\n");
 	
-	if(strstr(torrada,("pao"))!=0) {
-		 puts("\nCerta resposta");
-	}
+ do {
 	
-	else if(strstr(torrada,("torrada"))!=0){
-		puts("\nResposta errada");
-	}
+	printf("Voce quer começar?\na)sim\nb)não\n\n");
+  fgets(ppergunta,length,stdin);
 	
-	return;
+  if(strstr(ppergunta,"sim")!=0 || strstr(ppergunta,"a")!=0) {
+  	
+  	system("color 72");
+  	
+    printf("\n\n");
+			
+    pergtorrada(&torrada);
+  } 
+  
+  if(strstr(ppergunta,"não")!=0) {
+  printf("Voce quer continuar?\na)sim\nb)nao\n\nresposta: ");
+  scanf(" %c",&continuar);
+}
+} while(continuar == 's' || continuar != 'a');
+   
+  printf("Good bye"); 
+   
+ return 0;
 }
 
-int main() {
+void pergtorrada(char *ptorrada) {
 	
-	setlocale(LC_ALL,"Portuguese");
+	printf("O que coloca em uma torradeira?\n\n\t\ta)torrada \t \t\tb)pao\n\nresposta: ");
+	fgets(ptorrada,length,stdin);
 	
-	printf("\t\t\t\t---Bem vindo---\n\n\n");
-	
-	printf("Você quer começar o quiz?\na)começar\nb)exit\n\n");
-	
-	printf("Resposta: ");
-	gets(pergunta);
-	
-	if(strcmp(pergunta,"começar")==0 || strcmp(pergunta,"a")==0) {
-		
-		 torradaperg();
-		
-	}
-	
-	
-	
-	
-	
-	
-	return 0;
+	if(strstr(ptorrada,"pao")!=0 || strstr(ptorrada,"b")!=0){
+	puts("\nResposta certa");
+} else {
+	puts("\nResposta errada");
+}
+
+ return;	
 }
