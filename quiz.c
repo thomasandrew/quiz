@@ -30,8 +30,6 @@ int main(){
      printf("Ecolha a dificuldade:\n1)Facil\n2)Medio\n3)Dificil\n\n");
 		 fgets(pdifi,length,stdin);
 		 
-		
-		 
 		 if(strstr(pdifi,"facil")!=0 || strstr(pdifi,"1")!=0) {
 		 		
 		 		system("cls");
