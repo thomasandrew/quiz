@@ -78,7 +78,7 @@ void pergtorrada(char *pperg1,char *pperg2,char *pperg3,char *pperg4) {
 		puts("\nResposta errada\n");
 	}
 	
-	printf("Em que ano o playstation 2 foi lançado:\n1)2003\n2)2006\n3)2000\n4)2010\n");
+	printf("Em que ano o playstation 2 foi lançado:\n1)2003\n2)2006\n3)2000\n4)2010\n\nResposta: ");
 	fgets(pperg4,length,stdin);
 	
 	if(strstr(pperg4,"2000")!=0 || strstr(pperg4,"3")!=0) {
