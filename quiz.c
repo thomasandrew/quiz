@@ -6,14 +6,31 @@
 #define height 2
 #define width 2
 
+//
 char pergunta[length],torrada[length],voo[length],kingdom_hearts[length],difi[length],play2[length];
 int i,j;
 
-void pergtorrada(char *pperg1,char *pperg2,char *pperg3,char *pperg4);
+typedef struct{
+	
+	char livro[length];
+	char frase[length];
+	char chuveiro[length];
+	
+	
+	
+	
+}medio2;
+
+
+//
+void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4);
+void medio(char *pperg1,char *pperg2,char *pperg3);
 
 int main(){
   
   setlocale(LC_ALL,"Portuguese");
+  
+  medio2 pergunta2;
   
 	char ptorrada;
 	char *ppergunta = pergunta,*pdifi = difi;
@@ -38,15 +55,22 @@ int main(){
   	
         printf("\n\n");
 			
-        pergtorrada(&torrada,&voo,&kingdom_hearts,&play2); 
-		 } 
+        facil(&torrada,&voo,&kingdom_hearts,&play2); 
+		 } else if(strstr(pdifi,"medio")!=0 || strstr(pdifi,"2")!=0) {
+		 	  
+		 	  system("cls");
+		 	  
+		 	  printf("\n\n");
+		 	  
+	      medio(&pergunta2.livro,&pergunta2.frase,&pergunta2.chuveiro);
+		 }
     
   } 
   
  return 0;
 }
 
-void pergtorrada(char *pperg1,char *pperg2,char *pperg3,char *pperg4) {
+void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4) {
 	
 	printf("O que coloca em uma torradeira?\n\n\t\t1)torrada \t \t\t2)pao\n\nresposta: ");
 	fgets(pperg1,length,stdin);
@@ -87,3 +111,34 @@ void pergtorrada(char *pperg1,char *pperg2,char *pperg3,char *pperg4) {
 	
  return;	
 }
+
+void medio(char *pperg1,char *pperg2,char *pperg3) {
+	
+	printf("Normalmente, quantos litros de sangue uma pessoa tem? Em média, quantos são retirados numa doação de sangue?\n\n1)Tem entre 2 a 4 litros.São retirados 450 mililitros\n2)Tem entre 4 a 6 litros.São retirados 450 mililitros\n3)Tem 10 litros.São retirados 2 litros\n\nResposta: ");
+	gets(pperg1);
+	fflush;
+	
+	if(strstr(pperg1,"2")!=0 || strstr(pperg1,"Tem entre 2 a 4 litros.São retirados 450 mililitros")!=0) {
+		puts("\nResposta certa\n");
+	} else {
+		puts("\nResposta errada\n");
+	}
+	
+	printf("De quem é a famosa frase - Penso logo existo?\n\n1)Platão\n2)Galileu Galilei\n3)Descartes\n4)Sócrates\n5)Francis Bacon\n\nResposta: ");
+	gets(pperg2);
+	fflush;
+	
+  if(strstr(pperg2,"3")!=0 || strstr(pperg2,"Descartes")!=0 || strstr(pperg2,"descartes")!=0) {
+  	puts("\nResposta certa\n");
+	} else {
+		puts("\nResposta errada\n");
+	}
+	
+	printf("De onde é a invenção do chuveiro elétrico?\n\n1)França\n2)Inglaterra\n3)Brasil\n4)Autrália\n5)Itália\n\nResposta: ");
+	gets(pperg3);
+	fflush;
+	
+	
+	return; 
+}
+
