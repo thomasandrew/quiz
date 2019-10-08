@@ -3,8 +3,8 @@
 #include <locale.h>
 
 #define length 200
-#define height 2
-#define width 2
+#define height 50
+#define width 15
 
 int i,j;
 
@@ -30,10 +30,9 @@ typedef struct{
 	
 }medio2;
 
-
-//
 void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4);
 void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5);
+void quiz();
 
 int main(){
   
@@ -45,13 +44,15 @@ int main(){
 	char ptorrada;
 	char *ppergunta = pergunta1.pergunta,*pdifi = pergunta1.difi;
 	
+	quiz(i,j);
+	
 	printf("\t\t\t\tBem vindo\n\n");
 	
-	printf("Voce quer começar?\n1)sim\n2)não\n\n");
+	printf("Voce quer começar?\n1)sim\n2)não\n\nResposta: ");
   fgets(ppergunta,length,stdin);
 	
   if(strcmp(ppergunta,"sim")==1 || strcmp(ppergunta,"1")==0) {
-  	
+		
   	 puts("\n");
   	
      printf("Ecolha a dificuldade:\n1)Facil\n2)Medio\n3)Dificil\n\n");
@@ -75,8 +76,9 @@ int main(){
 		 	  
 	      medio(&pergunta2.livro,&pergunta2.frase,&pergunta2.chuveiro,&pergunta2.presidente,&pergunta2.elementos_quimicos);
 		 }
-    
   } 
+  
+  bye();
   
  return 0;
 }
@@ -178,3 +180,46 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
 	return; 
 }
 
+void quiz(int i,int j) {
+	
+   int tilemap[width][height] = {
+   	
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,2,0,0,0,0,0,0,0,2,0,3,3,3,0,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0},
+     {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,2,0,0,0,0,0,0,0,2,0,3,3,3,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0},     	
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,1,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,1,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,1,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0,0,2,0,0,3,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+   	 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,2,2,2,2,2,2,2,2,2,0,0,3,0,4,4,4,4,4,4,4,4,4,4,4,0,0,0,0,0,0,0}	
+	 }; 
+	 
+	  for(i=0;i<width;i++) {
+	  	for(j=0;j<height;j++) {
+	  		if (tilemap[i][j] == 1) {
+	  			  printf("q");
+				} else if (tilemap[i][j] == 2) {
+					  printf("u");
+				} else if (tilemap[i][j] == 3) {
+					  printf("i");
+				} else if (tilemap[i][j] == 4) {
+					  printf("z");
+				} else {
+					  printf(" ");
+				}
+			}
+			printf("\n");
+		}
+	
+	return;
+}
+
+void bye() {
+	
+	printf(" %c",219);
+	
+	return;
+}
