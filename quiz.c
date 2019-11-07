@@ -1,6 +1,7 @@
- #include <stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include <locale.h>
+#include <stdlib.h>
 
 #define length 200
 #define height 50
@@ -30,9 +31,18 @@ typedef struct{
 	
 }medio2;
 
+typedef struct {
+	
+	char origem[length];
+	char magos[length];
+	char deuses[length];
+	
+}dificil2;
+
 void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4);
 void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5);
 void quiz();
+void dificil(char *pperg1,char *pperg2,char *pperg3);
 
 int main(){
   
@@ -40,6 +50,7 @@ int main(){
   
   facil1 pergunta1;
   medio2 pergunta2;
+  dificil2 pergunta3;
   
 	char ptorrada;
 	char *ppergunta = pergunta1.pergunta,*pdifi = pergunta1.difi;
@@ -66,7 +77,7 @@ int main(){
   	
         printf("\n\n");
 			
-        facil(&pergunta1.torrada,&pergunta1.voo,&pergunta1.kingdom_hearts,&pergunta1.play2); 
+        facil(pergunta1.torrada,pergunta1.voo,pergunta1.kingdom_hearts,pergunta1.play2); 
         
 		 } else if(strstr(pdifi,"medio")!=0 || strstr(pdifi,"2")!=0) {
 		 	  
@@ -74,16 +85,28 @@ int main(){
 		 	  
 		 	  printf("\n\n");
 		 	  
-	      medio(&pergunta2.livro,&pergunta2.frase,&pergunta2.chuveiro,&pergunta2.presidente,&pergunta2.elementos_quimicos);
+	      medio(pergunta2.livro,pergunta2.frase,pergunta2.chuveiro,pergunta2.presidente,pergunta2.elementos_quimicos);
+		 } else if (strstr(pdifi,"dificil") != 0 || strstr(pdifi,"3") != 0) {
+		 	  
+				system("cls");
+				
+				printf("\n\n");
+				
+				dificil(pergunta3.origem,pergunta3.magos,pergunta3.deuses);
 		 }
   } 
   
-  bye();
+ 
   
  return 0;
 }
 
 void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4) {
+	
+	pperg1 = (char *) malloc(length * sizeof(char));
+	pperg2 = (char *) malloc(length * sizeof(char));
+	pperg3 = (char *) malloc(length * sizeof(char));
+	pperg4 = (char *) malloc(length * sizeof(char));
 	
 	printf("O que coloca em uma torradeira?\n\n\t\t1)torrada \t \t\t2)pao\n\nresposta: ");
 	fgets(pperg1,length,stdin);
@@ -98,7 +121,7 @@ void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4) {
 	printf("\nUm avião fazia um voo de Curitiba para São Paulo. Acontece que no meio da viagem, houve uma falha mecânica, e a aeronave caiu exatamente na fronteira do Parana com São Paulo. Onde devem ser enterrados os sobreviventes?\n1)São Paulo\n2)Párana\n3)Rio de Janeiro\n4)não é nescessário enterrá-los\n\nresposta: ");
 	fgets(pperg2,length,stdin);
 	
-	if(strstr(pperg2,"não é nescessário enterrá-los")!=1 || strstr(pperg2,"4")!=0) {
+	if(strstr(pperg2,"não é nescessário enterrá-los") !=1 || strstr(pperg2,"4") !=0) {
 		puts("\nResposta certa\n");
 	} else {
   	puts("\nResposta errada\n");
@@ -122,10 +145,20 @@ void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4) {
 		puts("\nResposta errada\n");
 	}
 	
+free(pperg1);
+free(pperg2);
+free(pperg3);
+free(pperg4);	
  return;	
 }
 
 void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
+	
+	pperg1 = (char *) malloc(length * sizeof(char));
+	pperg2 = (char *) malloc(length * sizeof(char));
+	pperg3 = (char *) malloc(length * sizeof(char));
+	pperg4 = (char *) malloc(length * sizeof(char));
+	pperg5 = (char *) malloc(length * sizeof(char));
 	
 	printf("Normalmente, quantos litros de sangue uma pessoa tem? Em média, quantos são retirados numa doação de sangue?\n\n1)Tem entre 2 a 4 litros.São retirados 450 mililitros\n2)Tem entre 4 a 6 litros.São retirados 450 mililitros\n3)Tem 10 litros.São retirados 2 litros\n\nResposta: ");
 	gets(pperg1);
@@ -177,7 +210,54 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
 		puts("\nResposta errada\n");
 	}
 	
+	free(pperg1);
+	free(pperg2);
+  free(pperg3);
+  free(pperg4);
+  free(pperg5);
 	return; 
+}
+
+void dificil(char *pperg1,char *pperg2,char *pperg3) {
+	
+	pperg1 = (char *) malloc(length * sizeof(char));
+	pperg2 = (char *) malloc(length * sizeof(char));
+	pperg3 = (char *) malloc(length * sizeof(char));
+	
+	printf("Qual foi o recurso utilizado inicialmente pelo homem para explicar a origem das coisas?\n\n1)A Filosofia\n2)A biologia\n3)A Matemática\n4)A Astronomia\n5)A mitologia\n\nResposta: ");
+	fgets(pperg1,length,stdin);
+	
+	if (strcmp(pperg1,"a mitologia") == 1 || strcmp(pperg1,"5") == 1) {
+		puts("\nResposta certa\n");
+	} else {
+		puts("\nResposta errada\n");
+	}
+	
+	printf("Quais os nomes dos três Reis Magos\n\n1)Gaspar, Nicolau e Natanael\n2)Belchior, Gaspar e Baltazar\n3)Belchior, Gaspar e Nataniel\n4)Melchior,Noé e Galileu\n\nresposta: ");
+	fgets(pperg2,length,stdin);
+	
+	if (strcmp(pperg2,"Belchior, Gaspar e Baltazar") == 1 || strcmp(pperg2,"2") == 1) {
+		 puts("\nResposta certa\n");
+	} else {
+		 puts("\nResposta errada\n");
+	}
+	
+	printf("Jupiter e Plutão são correlatos romanos de quais Deuses gregos?\n\n1)Ares e Hermes\n2)Cronos e Apolo\n3)Zeus e Hades\n4)Dionísio e Demèter\n5)Zeus e Ares\n\nResposta: ");
+	fgets(pperg3,length,stdin);
+	
+	if (strcmp(pperg3,"Zeus e Ares") == 1 || strcmp(pperg3,"5") == 1) {
+		 puts("\nResposta certa\n"); 
+	} else {
+		 puts("\nResposta errada\n");
+	}
+	
+	printf("Em quais das orações abaixo a palavra foi empregada incorretamente?\n\n1)Mais uma vez, portou-se mal.\n2)É um homem mal\n3)Esse é o mal de todos\n4)Mal falou nele, o fulano apareceu.\n5)");
+	
+	free(pperg1);
+	free(pperg2);
+	free(pperg3);
+	
+	return;
 }
 
 void quiz(int i,int j) {
