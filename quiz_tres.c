@@ -17,8 +17,10 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
 	if(strstr(pperg1,"2")!=0 || strstr(pperg1,"Tem entre 2 a 4 litros.São retirados 450 mililitros")!=0) {
 		puts(string);
 	} else {
-		puts(string_er);
+		fprintf(stderr,string_er);
 	}
+	
+	puts("\n");
 	
 	printf("De quem é a famosa frase - Penso logo existo?\n\n1)Platão\n2)Galileu Galilei\n3)Descartes\n4)Sócrates\n5)Francis Bacon\n\nResposta: ");
 	gets(pperg2);
@@ -27,8 +29,10 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
   if(strstr(pperg2,"3")!=0 || strstr(pperg2,"Descartes")!=0 || strstr(pperg2,"descartes")!=0) {
   	puts(string);
 	} else {
-		puts(string_er);
+		fprintf(stderr,string_er);
 	}
+	
+	puts("\n");
 	
 	printf("De onde é a invenção do chuveiro elétrico?\n\n1)França\n2)Inglaterra\n3)Brasil\n4)Autrália\n5)Itália\n\nResposta: ");
 	gets(pperg3);
@@ -37,8 +41,10 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
 	if(strstr(pperg3,"brasil")!=0 || strstr(pperg3,"3")!=0) {
 		puts(string);
 	} else {
-		puts(string_er);
+		fprintf(stderr,string_er);
 	}
+	
+	puts("\n");
 	
 	printf("Qual é o nome do presidente do Brasil que ficou conhecido como Jango?\n\n1)Jânio Quadros\n2)Jacinto Anjos\n2)Getúlio Vargas\n3)João Figueiredo\n4)João Goulart\n\nResposta: ");
 	gets(pperg4); 
@@ -47,8 +53,10 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
 	if(strstr(pperg4,"joao goulart")!=0 || strstr(pperg4,"4")!=0) {
 		puts(string);
 	} else {
-		puts(string_er);
+		fprintf(stderr,string_er);
 	}
+	
+	puts("\n");
 	
 	printf("Atualmente, quantos elementos químicos a tabela periódica possui?\n\n1) 113\n2) 109\n3) 108\n4) 118\n5) 92\n\nResposta: ");
 	gets(pperg5);
@@ -57,7 +65,7 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
 	if(strstr(pperg5,"118")!=0 || strstr(pperg5,"4")!=0) {
 		puts(string);
 	} else {
-		puts(string_er);
+		fprintf(stderr,string_er);
 	}
 	
 	
