@@ -10,8 +10,6 @@ void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5) {
 	pperg4 = (char *) malloc(length * sizeof(char));
 	pperg5 = (char *) malloc(length * sizeof(char));
 	
-do {
-	
 	printf("Normalmente, quantos litros de sangue uma pessoa tem? Em média, quantos são retirados numa doação de sangue?\n\n1)Tem entre 2 a 4 litros.São retirados 450 mililitros\n2)Tem entre 4 a 6 litros.São retirados 450 mililitros\n3)Tem 10 litros.São retirados 2 litros\n\nResposta: ");
 	gets(pperg1);
 	fflush(stdin);
@@ -62,12 +60,6 @@ do {
 		puts(string_er);
 	}
 	
-	puts("Voce quer continuar:\n\na)Sim\nb)Nâo\n\nResposta: ");
-	scanf(" %c",bye.continuar);
-	
-} while (bye.continuar == 'a' || bye.continuar == 's');
-
-  printf("bye");
 	
     free(pperg1);
     free(pperg2);
