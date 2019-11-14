@@ -3,14 +3,11 @@
 #include <locale.h>
 #include <stdlib.h>
 #include "quiz.h"
-#include "quiz_dois.h"
-#include "quiz_tres.h"
-#include "quiz_quatro.h"
+#include "quiz_dois.c"
+#include "quiz_tres.c"
+#include "quiz_quatro.c"
 
-void facil(char *pperg1,char *pperg2,char *pperg3,char *pperg4);
-void medio(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5);
 void quiz();
-void dificil(char *pperg1,char *pperg2,char *pperg3,char *pperg4,char *pperg5);
 
 int i,j;
 
@@ -70,8 +67,6 @@ int main(){
 		 }
   } 
   
-  bye();
-  
  return 0;
 }
 
@@ -112,9 +107,3 @@ void quiz(int i,int j) {
 	return;
 }
 
-void bye() {
-	
-	printf(" %c",219);
-	
-	return;
-}
