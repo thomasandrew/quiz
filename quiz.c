@@ -65,7 +65,12 @@ int main(){
 				
 				dificil(pergunta3.origem,pergunta3.magos,pergunta3.deuses,pergunta3.espaco,pergunta3.literatura);
 		 }
-  } 
+  } else {
+  	
+  	 system("cls");
+  	 
+  	 printf("\t\t\t\t\nGood bye");
+	}
   
  return 0;
 }
